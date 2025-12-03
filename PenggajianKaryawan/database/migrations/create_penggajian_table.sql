@@ -1,0 +1,13 @@
+CREATE TABLE penggajian (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    karyawan_id INT NOT NULL,
+    bulan INT NOT NULL,
+    tahun INT NOT NULL,
+    gaji_pokok DECIMAL(10, 2) NOT NULL,
+    tunjangan DECIMAL(10, 2) DEFAULT 0,
+    potongan DECIMAL(10, 2) DEFAULT 0,
+    total_gaji DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (karyawan_id) REFERENCES karyawan(id) ON DELETE CASCADE
+);
